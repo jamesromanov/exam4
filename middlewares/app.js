@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mid = require("../utils/error");
 const cookieParser = require("cookie-parser");
+const saveLogs = require("./log.middle.ware");
 
 const authRouter = require("../routes/auth.router");
 const authorRouter = require("../routes/author.route");
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(mid);
+app.use(saveLogs);
 
 process.on("unhandledRejection", (err) => {
   console.log(err.name, err.message);
