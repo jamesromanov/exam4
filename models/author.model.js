@@ -39,7 +39,11 @@ author.pre("save", async function (next) {
   let password = this.password;
   this.password = await bcrypt.hash(password, 12);
 });
-
+author.virtual("posts", {
+  ref: "posts",
+  localField: "_id",
+  foreignField: "author",
+});
 let Author = mongoose.model("authors", author);
 
 module.exports = Author;
