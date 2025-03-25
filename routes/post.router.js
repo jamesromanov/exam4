@@ -48,22 +48,22 @@ postRouter
   .get(
     protector,
     checkRole(["author"]),
-    private,
     checkOwner,
+    private,
     postController.getPostById
   )
   .put(
     protector,
     checkRole(["author"]),
-    private,
     checkOwner,
+    private,
     postController.updatePostById
   )
   .delete(
     protector,
     checkRole(["author"]),
-    private,
     checkOwner,
+    private,
     postController.deletePostById
   );
 
