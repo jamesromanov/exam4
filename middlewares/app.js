@@ -4,7 +4,7 @@ const mid = require("../utils/error");
 const cookieParser = require("cookie-parser");
 
 const authRouter = require("../routes/auth.router");
-const authorRouter = require("../routes/auther.route");
+const authorRouter = require("../routes/author.route");
 const postRouter = require("../routes/post.router");
 
 const app = express();
