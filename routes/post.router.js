@@ -5,7 +5,6 @@ const checkRole = require("../middlewares/checkrole");
 const multer = require("multer");
 const path = require("path");
 const checkOwner = require("../middlewares/ownerMiddleware");
-const private = require("../middlewares/privacy");
 
 const postRouter = express.Router();
 
@@ -45,25 +44,17 @@ postRouter
 
 postRouter
   .route("/:id")
-  .get(
-    protector,
-    checkRole(["author"]),
-    checkOwner,
-    private,
-    postController.getPostById
-  )
+  .get(protector, checkRole(["author"]), checkOwner, postController.getPostById)
   .put(
     protector,
     checkRole(["author"]),
     checkOwner,
-    private,
     postController.updatePostById
   )
   .delete(
     protector,
     checkRole(["author"]),
     checkOwner,
-    private,
     postController.deletePostById
   );
 
