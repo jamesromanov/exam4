@@ -2,16 +2,22 @@ const mongoose = require("mongoose");
 
 let post = new mongoose.Schema(
   {
-    title: { type: String, required: true, trim: true },
-    content: { type: String, required: true },
-    author: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
+    title: {
+      type: String,
+      required: [true, "Post nomini berish majburiy!"],
       trim: true,
     },
+    content: {
+      type: String,
+      required: [true, "Content nomini berish majburiy!"],
+    },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: [true, "Author berish majburiy!"],
+      ref: "authors",
+    },
     image: { type: String, default: "none" },
-    role: { type: String, enum: ["author", "user"], default: "user" },
-    active: { type: Boolean, default: true },
+    deleted: { type: Boolean, default: false },
   },
   {
     toJSON: { virtuals: true },

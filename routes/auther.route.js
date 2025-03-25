@@ -1,6 +1,6 @@
 const express = require("express");
 const authorController = require("../controllers/author.controller");
-const protector = require("../middlewares/protector");
+const protector = require("../middlewares/authMiddleware");
 const checkRole = require("../middlewares/checkrole");
 
 const authorRouter = express.Router();
