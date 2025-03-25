@@ -4,7 +4,6 @@ const protector = require("../middlewares/authMiddleware");
 const checkRole = require("../middlewares/checkrole");
 const multer = require("multer");
 const path = require("path");
-const errorHandler = require("../utils/errorHandler");
 
 const postRouter = express.Router();
 
