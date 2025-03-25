@@ -28,7 +28,6 @@ let register = errorHandler(async (req, res, next) => {
   if (!email) throw new Error("Iltimos emailingiz kiriting!");
   if (!password) throw new Error("Iltimos passwordizni kiriting!");
   let checkingBody = joiVal.validate({ name, email, isAcive, role, password });
-  console.log(checkingBody);
   if (checkingBody.error)
     throw new Error("Iltimos ma'lumotlarni togri kiriting!");
   let [emailChecking, nameChecking] = await Promise.all([
